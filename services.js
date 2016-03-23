@@ -7,14 +7,10 @@ ifIGoToApp.service('destinationService', function(){
 });
 
 ifIGoToApp.service('weatherService', ["$resource", function($resource) {
-  // this.destination = "San Francisco"; //default
-  // this.currentWeather = {};
-  // this.forecastResult = {};
 
   var openWeatherAPI = "http://api.openweathermap.org/data/2.5/";
   var currentWeatherAPI = $resource(openWeatherAPI + "weather", {callback: "JSON_CALLBACK"}, { get: {method: "JSONP"}});
   var weatherForecastAPI = $resource(openWeatherAPI + "forecast/daily", {callback: "JSON_CALLBACK"}, { get: {method: "JSONP"}});
-
 
   // Current Condition results
   this.getCurrentWeather = function(city) {
@@ -46,25 +42,68 @@ ifIGoToApp.service('weatherService', ["$resource", function($resource) {
     var day = date.getDay();
     switch(day) {
       case 0:
-        return "Sunday";
+      return "Sunday";
       case 1:
-        return "Monday";
+      return "Monday";
       case 2:
-        return "Tuesday";
+      return "Tuesday";
       case 3:
-        return "Wednesday";
+      return "Wednesday";
       case 4:
-        return "Thursday";
+      return "Thursday";
       case 5:
-        return "Friday";
+      return "Friday";
       case 6:
-        return "Saturday";
+      return "Saturday";
     }
   }
 
   this.getIconSrc = function(weather) {
     if (!weather) return "";
     return "http://openweathermap.org/img/w/" + weather["icon"] + ".png";
+  }
+
+}]);
+
+ifIGoToApp.service("eventsService", ["$resource", function($resource) {
+
+  var eventfulUrl = "http://api.eventful.com/json/events/search";
+  var eventfulAPI = $resource(eventfulUrl, {callback: "JSON_CALLBACK"}, { get: {method: "JSONP"}});
+
+  function getEvents(category, city) {
+    return eventfulAPI.get({
+      app_key: eventful_api_key,
+      location: city,
+      date: "Future",
+      category: category,
+      image_sizes: "perspectivecrop290by250",
+      sort_order: "popularity"
+    });
+  }
+
+  this.concerts = function(city) {
+      var category = "music";
+      return getEvents(category, city);
+  }
+
+  this.performingArts = function(city) {
+    var category = "performing_arts";
+    return getEvents(category, city);
+  }
+
+  this.exhibitions = function(city) {
+    var category = "art";
+    return getEvents(category, city);
+  }
+
+  this.nightlife = function(city) {
+    var category = "singles_social";
+    return getEvents(category, city);
+  }
+
+  this.sports = function(city) {
+    var category = "sports";
+    return getEvents(category, city);
   }
 
 }]);

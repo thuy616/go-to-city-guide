@@ -1,0 +1,33 @@
+<div class="container content-card">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Things to do in {{city}}</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="list-group">
+            <div class="list-group-item" ng-repeat="list in eventsList" >
+              <h4 class="list-group-item-heading">{{list.category}}</h4>
+              <div class="row">
+                <!-- REPEAT  THUMBNAIL for each event in the list -->
+                <div ng-repeat="event in list.events">
+                  <div class="col-sm-4 col-md-3">
+                    <div class="thumbnail event-card">
+                      <img ng-src="{{event.image.perspectivecrop290by250.url}}">
+                      <div class="event-info">
+                        <h4>{{event.title | limitTo: 20}}{{event.title.length > 20 ? '...' : ''}}</h4>
+                        <p>{{event.start_time | date:'medium'}}</p>
+                        <p>{{event.venue_name}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

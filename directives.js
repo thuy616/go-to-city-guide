@@ -40,3 +40,14 @@ ifIGoToApp.directive("weatherReport", function() {
     }
   }
 });
+
+ifIGoToApp.directive("eventsReport", function(){
+  return {
+    templateUrl: "directives/eventsOverview.html",
+    replace: true,
+    scope: {
+      eventsList: '=',
+      city: '@'
+    }
+  }
+});

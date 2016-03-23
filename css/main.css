@@ -22,3 +22,42 @@ body {
 .guide-content {
   margin-top: 100px;
 }
+
+.content-card {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.panel-default>.panel-heading {
+  background-color: #6BB9F0;
+  color: #fff;
+}
+
+/* Styling events cards */
+.thumbnail.event-card {
+  background-color: #fff;
+  padding-bottom: 20%;
+  padding-top: 0;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  height: 300px;
+}
+
+.thumbnail.event-card>img{
+  height: auto;
+  width: 100%;
+}
+
+
+.thumbnail.event-card>.event-info {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  padding: 15px;
+  background-color: #fff;
+  height: 130px;
+  width: 100%;
+  background: #fff;
+}
+/* End styling event cards */

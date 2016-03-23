@@ -1,11 +1,13 @@
+<div class="container content-card">
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">{{ getDay({ dt: condition.dt}) }}</h3>
-    <p>{{ correctDate({dt: condition.dt}) | date:"MM/dd/yyyy"}}</p>
+    <h3 class="panel-title">Current Weather</h3>
   </div>
   <div class="panel-body">
+    <h4 class="panel-title">{{ getDay({ dt: condition.dt}) }}</h4>
+    <p>{{ correctDate({dt: condition.dt}) | date:"MM/dd/yyyy"}}</p>
     <div class="row">
-      <div class="col-xs-6 col-md-3">
+      <div class="col-xs-6 col-md-3 text-center">
         <!-- icon -->
         <img ng-src="{{getIconSrc({icon: condition.weather[0]})}}" />
         <!-- main condition -->
@@ -39,4 +41,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
