@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="ifIGoToApp">
+    <head>
+        <title>AngularJS Weather Forecast SPA</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <!-- Google Font API -->
+        <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+        <!-- custom css -->
+        <link rel="stylesheet" href="css/main.css" />
+
+        <!--jQuery via CDN -->
+        <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+        <!-- load angular via CDN -->
+        <script src="https://code.angularjs.org/1.5.2/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.5.2/angular-route.min.js"></script>
+        <script src="https://code.angularjs.org/1.5.2/angular-resource.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0Eq4zSXRV5ZiBduBxL-BlPWIEN7RHS7Y&libraries=places" async defer></script>
+        <script src="app.js"></script>
+        <script src="apis/keys.js"></script>
+        <script src="routes.js"></script>
+        <script src="services.js"></script>
+        <script src="controllers.js"></script>
+        <script src="directives.js"></script>
+
+    </head>
+    <body>
+
+        <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#/">If I go to...</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+    <div class='container'>
+        <div ng-view></div>
+    </div>
+    </body>
+</html>

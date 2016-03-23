@@ -1,0 +1,34 @@
+<weather-report condition="currentWeather"
+  convert-to-celcius="convertToCelcius(kelvin)"
+  convert-to-fahrenheit="convertToFahrenheit(kelvin)"
+  correct-date="correctDate(dt)"
+  get-day="getDay(dt)"
+  get-icon-src="getIconSrc(icon)"></weather-report>
+<hr/>
+Forecast for {{ destination }}
+<div class="row">
+  <div ng-repeat="w in forecastResult.list">
+    <div class="col-xs-3 col-md-2">
+      <div class="thumbnail text-center">
+        <h4 align="center">{{ getDay(w.dt) }}</h4>
+        <h5 align="center"> {{ correctDate(w.dt) | date:"MM/dd/yyyy" }}</h5>
+        <img ng-src={{getIconSrc(w.weather[0])}} />
+        <p><b>{{ w.weather[0]["main"] }}</b></p>
+        <div class="caption">
+          <p>
+            <br>
+            {{ convertToFahrenheit(w.temp.day) }} °F
+            <br>
+            {{ convertToCelcius(w.temp.day) }} °C
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav>
+  <ul class="pager">
+    <li class="previous"><a href="#/"><span aria-hidden="true">&larr;</span> Back</a></li>
+    <li class="next"><a href="#/events">Next <span aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</nav>

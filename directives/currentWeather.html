@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{ getDay({ dt: condition.dt}) }}</h3>
+    <p>{{ correctDate({dt: condition.dt}) | date:"MM/dd/yyyy"}}</p>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-6 col-md-3">
+        <!-- icon -->
+        <img ng-src="{{getIconSrc({icon: condition.weather[0]})}}" />
+        <!-- main condition -->
+        <p><b>{{ condition.weather[0]["main"] }}</b></p>
+        <p><b>{{ condition.weather[0]["description"] }}</b></p>
+
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <!-- min temperature to max temperature in F and C-->
+        <b>{{ convertToFahrenheit({kelvin: condition.main.temp}) }} °F</b>
+        <br>
+        <b>{{ convertToCelcius({kelvin: condition.main.temp}) }} °C</b>
+        <br>
+        min {{ convertToFahrenheit({kelvin:condition.main.temp_min}) }} - max {{ convertToFahrenheit({kelvin:condition.main.temp_max}) }} °F
+        <br>
+        min {{ convertToCelcius({kelvin:condition.main.temp_min}) }} - max {{ convertToCelcius({kelvin:condition.main.temp_max}) }} °C
+        <br><br>
+        <!-- pressure -->
+        Pressure: {{condition.main.pressure}} HPA
+        <br>
+        <!-- humidity -->
+        Humidity: {{condition.main.humidity}}
+        <br>
+        <!-- wind -->
+        Wind speed: {{condition.wind.speed}} meter/sec, direction: {{condition.wind.deg}}°
+        <br>
+        <!-- rain -->
+        <!-- <span ng-if="{{condition.rain}}">
+          Rain volume in last 3 hours: {{condition.rain.3h}}
+        </span> -->
+      </div>
+    </div>
+  </div>
+</div>

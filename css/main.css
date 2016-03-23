@@ -1,0 +1,24 @@
+body {
+  font-family: Abel;
+}
+
+.search-header {
+  color: #6BB9F0;
+}
+
+.search-btn {
+  color: #6BB9F0;
+}
+
+.input-group-btn>.btn:active, .input-group-btn>.btn:focus, .input-group-btn>.btn:hover {
+  background-color: #6BB9F0;
+  color: #FFF;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.guide-content {
+  margin-top: 100px;
+}

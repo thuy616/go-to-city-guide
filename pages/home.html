@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <h2 class='search-header'>If I go to {{ formattedAddress }} </h2>
+      <div class="input-group">
+        <input id="destination_search" type="text" class="form-control" placeholder="San Francisco" ng-model="destination">
+        <span class="input-group-btn">
+          <button class="btn btn-default search-btn" ng-click="handleGoClick()">Go!</button>
+          <place-autocomplete
+            input-html="inputHtmlElement"
+            destination-name="destination"
+            formatted-address="formattedAddress"
+            country="country"
+          ></place-autocomplete>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-md-6 -->
+</div>
+
+
+<!-- GUIDE CONTENT -->
+
+<div id="guide_content" class="container guide-content">
+  <!-- WEATHER -->
+  <a href="#/forecast">
+  <weather-report condition="currentWeather"
+    convert-to-celcius="convertToCelcius(kelvin)"
+    convert-to-fahrenheit="convertToFahrenheit(kelvin)"
+    correct-date="correctDate(dt)"
+    get-day="getDay(dt)"
+    get-icon-src="getIconSrc(icon)"></weather-report>
+  </a>
+
+  <!-- EVENTS -->
+
+  <!-- GOING OUT, NIGHT LIFE EVENTFUL -->
+
+  <!-- ATTRACTIONS by GOOGLE MAPS -->
+
+  <!-- FOOD YELP -->
+
+
+</div>
