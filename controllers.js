@@ -17,17 +17,23 @@ function($scope, destinationService, weatherService, eventsService){
     // EVENTS
     $scope.eventsList.length = 0;
     eventsService.concerts($scope.formattedAddress).$promise.then(function(data){
-      console.log("concerts data: ");
-      console.log(data);
+      var events;
+      if (data.events.event.length>=8) {
+        events = data.events.event.slice(0,8);
+      }
       $scope.eventsList.push({
         "category": "Music & Concerts",
-        "events": data.events.event.slice(0,8)
+        "events": events
       });
     });
     eventsService.exhibitions($scope.formattedAddress).$promise.then(function(data) {
+      var events;
+      if (data.events.event.length>=8) {
+        events = data.events.event.slice(0,8);
+      }
       $scope.eventsList.push({
         "category": "Art & Exhibitions",
-        "events": data.events.event.slice(0,8)
+        "events": events
       });
     });
   }
@@ -71,17 +77,50 @@ ifIGoToApp.controller('forecastController', ["$scope", "destinationService", "we
 }]);
 
 ifIGoToApp.controller('eventsController', ["$scope", "destinationService", "eventsService", function($scope, destinationService, eventsService) {
+  $scope.destination = destinationService.formattedAddress;
   $scope.eventsList = [];
-  var city = destinationService.destination;
+  var destination = destinationService.formattedAddress;
 
-  eventsService.concerts(city).$promise.then(function(data){
-    console.log("concerts data: ");
-    console.log(data);
-    // $scope.eventsList.concerts = data.events.event;
+  $scope.eventsList.length = 0;
+  eventsService.concerts(destination).$promise.then(function(data){;
+    var events;
+    if (data.events.event.length>=8) {
+      events = data.events.event.slice(0,8);
+    }
+    $scope.eventsList.push({
+      "category": "Music & Concerts",
+      "events": events
+    });
   });
-
-  eventsService.performingArts(city).$promise.then(function(data) {
-    // $scope.eventsList.exhibitions = data.events.event;
+  eventsService.exhibitions(destination).$promise.then(function(data) {
+    var events;
+    if (data.events.event.length>=8) {
+      events = data.events.event.slice(0,8);
+    }
+    $scope.eventsList.push({
+      "category": "Art & Exhibitions",
+      "events": events
+    });
+  });
+  eventsService.sports(destination).$promise.then(function(data) {
+    var events;
+    if (data.events.event.length>=4) {
+      events = data.events.event.slice(0,4);
+    }
+    $scope.eventsList.push({
+      "category": "Sports",
+      "events": events
+    });
+  });
+  eventsService.nightlife(destination).$promise.then(function(data) {
+    var events;
+    if (data.events.event.length>=8) {
+      events = data.events.event.slice(0,8);
+    }
+    $scope.eventsList.push({
+      "category": "Nighlife & Social",
+      "events": events
+    });
   });
 
 }]);

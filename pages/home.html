@@ -22,17 +22,18 @@
 <div id="guide_content" class="container guide-content">
   <!-- WEATHER -->
   <a href="#/forecast">
-  <weather-report condition="currentWeather"
-    convert-to-celcius="convertToCelcius(kelvin)"
-    convert-to-fahrenheit="convertToFahrenheit(kelvin)"
-    correct-date="correctDate(dt)"
-    get-day="getDay(dt)"
-    get-icon-src="getIconSrc(icon)"></weather-report>
+    <weather-report condition="currentWeather"
+      convert-to-celcius="convertToCelcius(kelvin)"
+      convert-to-fahrenheit="convertToFahrenheit(kelvin)"
+      correct-date="correctDate(dt)"
+      get-day="getDay(dt)"
+      get-icon-src="getIconSrc(icon)"></weather-report>
   </a>
 
   <!-- EVENTS -->
-  <events-report events-list="eventsList" city={{destination}}></events-report>
-
+  <a href="#/events">
+    <events-report events-list="eventsList" city={{destination}}></events-report>
+  </a>
   <!-- GOING OUT, NIGHT LIFE EVENTFUL -->
 
   <!-- ATTRACTIONS by GOOGLE MAPS -->

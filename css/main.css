@@ -33,7 +33,17 @@ body {
   color: #fff;
 }
 
+.panel-title {
+  font-size:20px;
+}
+
 /* Styling events cards */
+.list-group-item-heading {
+  color: #6BB9F0;
+  padding: 10px;
+  margin: 10px;
+}
+
 .thumbnail.event-card {
   background-color: #fff;
   padding-bottom: 20%;
